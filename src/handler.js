@@ -81,7 +81,7 @@ const addBookHandler = (request, h) => {
 const getAllBooksHandler = (request, h) => {
   const { name, reading, finished } = request.query;
 
-  if (!reading) {
+  if (reading) {
     const response = h.response({
       status: 'success',
       data: {
@@ -96,7 +96,7 @@ const getAllBooksHandler = (request, h) => {
     return response;
   }
 
-  if (!finished) {
+  if (finished) {
     const response = h.response({
       status: 'success',
       data: {
